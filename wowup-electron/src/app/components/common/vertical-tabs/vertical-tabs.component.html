@@ -89,20 +89,6 @@
     <div class="tab-title">{{ "PAGES.HOME.DISCORD_TAB_TITLE" | translate }}</div>
   </a>
 
-  <a
-    appExternalLink
-    class="tab btn patreon-link"
-    href="https://www.patreon.com/jliddev"
-    matTooltip="{{ 'PAGES.MY_ADDONS.PAGE_CONTEXT_FOOTER.PATREON_SUPPORT' | translate }}"
-  >
-    <img *ngIf="(isCollapsed$ | async) === true" class="patron-img" src="assets/images/patreon_logo_small.png" />
-    <img
-      *ngIf="(isCollapsed$ | async) === false"
-      class="patron-img"
-      src="assets/Digital-Patreon-Wordmark_FieryCoral.png"
-    />
-  </a>
-
   <div
     *ngIf="(sessionService.adSpace$ | async) === false"
     class="tab hover-bg-secondary-2"
@@ -124,15 +110,5 @@
     </mat-icon>
 
     <div class="tab-title">{{ "PAGES.HOME.COLLAPSE_BUTTON_TITLE" | translate }}</div>
-  </div>
-
-  <!-- AD FRAME -->
-  <div *ngIf="sessionService.adSpace$ | async" class="ad-space text-1 bg-secondary-2">
-    <div class="tab hover-bg-secondary-4" style="" (click)="onClickAdExplainer()">
-      {{ "ADS.AD_EXPLAINER_BUTTON" | translate }}
-    </div>
-    <div class="ad">
-      <app-webview *ngFor="let params of adPageParams$ | async" [options]="params"></app-webview>
-    </div>
   </div>
 </div>
